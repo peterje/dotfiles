@@ -1,0 +1,119 @@
+# SXKHD Config, Peter Edmonds 2020
+# Focus on window in direction
+alt + {h,j,k,l}
+	bspc node -f {west,south,north,east}
+
+# terminal emulator
+alt + Return
+	termite
+
+# program launcher
+alt + d
+	rofi -modi run,drun -show drun -columns 1 -width 24 -lines 8 -padding 45 -hide-scrollbar -show-icons -drun-icon-theme "Papirus"
+
+# make sxhkd reload its configuration files:
+alt + Escape
+	pkill -USR1 -x sxhkd
+
+# restart bspwm
+alt + shift + r
+	bspc wm -r
+
+# quit bspwm
+alt + shift + e
+    bspc quit
+
+# close and kill
+alt + shift + q
+	bspc node -c
+
+#
+# state/flags
+#
+
+# set the window state
+alt + {t,shift + t,shift + space,f}
+	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+
+# set the node flags
+#alt + ctrl + {m,x,y,z}
+#	bspc node -g {marked,locked,sticky,private}
+
+#
+# focus/swap
+#
+
+# focus the node in the given direction
+#alt + {_,shift + }{h,j,k,l}
+#	bspc node -{f,s} {west,south,north,east}
+alt + {_,shift + }{Left,Down,Up,Right}
+	bspc node -{f,s} {west,south,north,east}
+
+# focus the next/previous node in the current desktop
+alt + Tab
+	bspc node -f next.local
+# Focus on desktop
+alt + {0-9}
+	bspc desktop -f {0-9}
+
+# move window to desktop and focus
+alt + control + {0-9}
+  bspc node -d {0-9} && bspunhide && bspc desktop -f {0-9}
+
+#
+# move/resize
+#
+
+
+# ===================================
+# ========== User-specific ==========
+# ===================================
+
+alt + w
+	chromium
+
+alt + r
+	termite -e ranger
+
+alt + shift + r
+	termite -e sudo ranger
+
+alt + x
+    sudo betterlockscreen -l
+
+alt + s
+    ~/Scripts/scratchy.sh
+
+alt + shift + s
+    spotify
+
+alt + c
+    code
+
+alt + shift + i
+    imgur-screenshot
+
+alt + ctrl + i
+    maim -s | xclip -selection clipboard -t image/png 
+
+# Screen brightness control
+XF86MonBrightnessDown
+    sudo light -U 10
+XF86MonBrightnessUp
+    sudo light -A 10
+# Volume control
+XF86AudioRaiseVolume
+    /usr/bin/pulseaudio-ctl up 10
+XF86AudioLowerVolume
+    /usr/bin/pulseaudio-ctl down 10
+XF86AudioMute
+    pactl set-sink-mute 0 toggle
+# Play/pause
+XF86AudioPlay
+    dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause 
+# Next/prev
+XF86AudioNext
+    dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
+XF86AudioPrev
+    dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
+
