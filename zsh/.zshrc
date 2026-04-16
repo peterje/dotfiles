@@ -1,3 +1,5 @@
+# Add deno completions to search path
+if [[ ":$FPATH:" != *":/Users/peteredm/.config/zsh/completions:"* ]]; then export FPATH="/Users/peteredm/.config/zsh/completions:$FPATH"; fi
 export DOTFILES="${DOTFILES:-$HOME/Workspace/dotfiles}"
 
 typeset -U path PATH
@@ -38,5 +40,7 @@ dunstow() {
 
   command stow -D -d "$DOTFILES" -t "$HOME" "${packages[@]}"
 }
+alias orca='bun run /Users/peteredm/Workspace/orca/dist/orca'
 
 [[ -f "$HOME/.zshrc.local" ]] && source "$HOME/.zshrc.local"
+. "/Users/peteredm/.deno/env"
