@@ -1,0 +1,33 @@
+# font
+font-family = "Paper Mono"
+window-title-font-family = "JetBrains Mono"
+theme = Github Dark Default
+font-size = 20
+adjust-cell-height = 50%
+adjust-cell-width = -5%
+keybind = shift+enter=text:\x1b\r
+
+# clipboard paste protection — prompts before pasting potentially dangerous content
+clipboard-paste-protection = true
+
+# shell integration — enables prompt jumping and sudo password detection
+shell-integration = detect
+shell-integration-features = cursor,sudo,title
+
+# prompt jumping — navigate between shell prompts
+keybind = shift+up=jump_to_prompt:-1
+keybind = shift+down=jump_to_prompt:1
+
+# smart copy — Cmd+C copies if selection exists, otherwise sends interrupt
+copy-on-select = clipboard
+keybind = super+c=copy_to_clipboard
+
+# quick terminal — global hotkey for dropdown terminal
+quick-terminal-position = top
+quick-terminal-animation-duration = 0.15
+keybind = global:ctrl+grave_accent=toggle_quick_terminal
+
+# macOS-specific
+macos-option-as-alt = true
+mouse-hide-while-typing = true
+scrollback-limit = 10000000

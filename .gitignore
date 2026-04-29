@@ -1,0 +1,5 @@
+
+# local shell state/history
+**/.zsh_history
+**/.zsh_sessions/
+**/.zcompdump*
