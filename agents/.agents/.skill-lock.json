@@ -1,0 +1,68 @@
+{
+  "version": 3,
+  "skills": {
+    "vercel-composition-patterns": {
+      "source": "vercel-labs/agent-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/vercel-labs/agent-skills.git",
+      "skillPath": "skills/composition-patterns/SKILL.md",
+      "skillFolderHash": "bf90d0a4b83ea054653350f9c67f6de235d3a368",
+      "installedAt": "2026-02-12T01:20:35.319Z",
+      "updatedAt": "2026-02-12T01:20:35.319Z"
+    },
+    "vercel-react-best-practices": {
+      "source": "vercel-labs/agent-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/vercel-labs/agent-skills.git",
+      "skillPath": "skills/react-best-practices/SKILL.md",
+      "skillFolderHash": "079b06a135401704ea94ab74c7c9d86c92ba259f",
+      "installedAt": "2026-02-12T01:20:35.418Z",
+      "updatedAt": "2026-02-12T01:20:35.418Z"
+    },
+    "react-doctor": {
+      "source": "millionco/react-doctor",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/millionco/react-doctor.git",
+      "skillPath": "skills/react-doctor/SKILL.md",
+      "skillFolderHash": "868e96eab2f8e2be1e6069530d34a40a5a8ccbdc",
+      "installedAt": "2026-02-17T21:00:44.620Z",
+      "updatedAt": "2026-02-17T21:00:44.620Z"
+    },
+    "remotion-best-practices": {
+      "source": "remotion-dev/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/remotion-dev/skills.git",
+      "skillPath": "skills/remotion/SKILL.md",
+      "skillFolderHash": "666980630dc910c6b623f3bab13280af47d6995e",
+      "installedAt": "2026-03-11T05:49:54.326Z",
+      "updatedAt": "2026-03-11T05:49:54.326Z"
+    },
+    "browser": {
+      "source": "browserbase/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/browserbase/skills.git",
+      "skillPath": "skills/browser/SKILL.md",
+      "skillFolderHash": "a279551af591c2be19a709515ab609de4461b06b",
+      "pluginName": "browse",
+      "installedAt": "2026-04-01T05:38:27.947Z",
+      "updatedAt": "2026-04-01T05:38:27.947Z"
+    }
+  },
+  "dismissed": {
+    "findSkillsPrompt": true
+  },
+  "lastSelectedAgents": [
+    "amp",
+    "antigravity",
+    "cline",
+    "codex",
+    "cursor",
+    "deepagents",
+    "firebender",
+    "gemini-cli",
+    "github-copilot",
+    "kimi-cli",
+    "opencode",
+    "warp"
+  ]
+}

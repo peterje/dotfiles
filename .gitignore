@@ -6,3 +6,10 @@
 
 # local consolidation/import archives
 _imported/
+
+# pi local state / secrets
+pi/.pi/agent/auth.json
+pi/.pi/agent/sessions/
+pi/.pi/agent/fff/
+pi/.pi/agent/git/
+**/.DS_Store
