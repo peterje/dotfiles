@@ -107,18 +107,6 @@ function normalizeQuestion(input: {
 	};
 }
 
-function formatWidget(details: InterviewDetails | undefined): string[] | undefined {
-	if (!details || details.answers.length === 0) return undefined;
-	const lines = [details.title ? `Research intake: ${details.title}` : "Research intake"];
-	for (const answer of details.answers.slice(0, 6)) {
-		lines.push(`• ${answer.label}: ${answer.display}`);
-	}
-	if (details.answers.length > 6) {
-		lines.push(`• …and ${details.answers.length - 6} more`);
-	}
-	return lines;
-}
-
 function formatInterviewSummary(details: InterviewDetails): string {
 	if (details.answers.length === 0) return "No answers captured.";
 	return details.answers.map((answer) => `${answer.label}: ${answer.display}`).join("\n");
@@ -173,13 +161,13 @@ function findLatestInterview(ctx: Parameters<NonNullable<Parameters<ExtensionAPI
 export default function researchInterview(pi: ExtensionAPI) {
 	let latestInterview: InterviewDetails | undefined;
 
-	const refreshWidget = (ctx: { ui: { setWidget: (id: string, widget: string[] | undefined) => void } }) => {
-		ctx.ui.setWidget("research-interview", formatWidget(latestInterview));
+	const clearWidget = (ctx: { ui: { setWidget: (id: string, widget: string[] | undefined) => void } }) => {
+		ctx.ui.setWidget("research-interview", undefined);
 	};
 
 	pi.on("session_start", async (_event, ctx) => {
 		latestInterview = findLatestInterview(ctx);
-		refreshWidget(ctx);
+		clearWidget(ctx);
 	});
 
 	pi.registerCommand("draft-dr-query", {
@@ -447,7 +435,7 @@ export default function researchInterview(pi: ExtensionAPI) {
 			});
 
 			latestInterview = result.cancelled ? latestInterview : result;
-			refreshWidget(ctx);
+			clearWidget(ctx);
 
 			if (result.cancelled) {
 				return {
