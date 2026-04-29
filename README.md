@@ -32,6 +32,7 @@ active config in `$HOME` and `~/.config` should symlink back into this repo. old
 | `zellij/.config/zellij/layouts/` | `~/.config/zellij/layouts/` | zellij layouts. |
 | `zellij/.config/zellij/plugins/` | `~/.config/zellij/plugins/` | local zellij wasm plugins. |
 | `opencode/.config/opencode/` | `~/.config/opencode/*` | opencode config, instructions, agents, tui config, and package metadata. `~/.config/opencode/skills` points to `~/.agents/skills` so skills live in one shared place. |
+| `git/.gitconfig` | `~/.gitconfig` | global git defaults: ssh signing, rebase/autosquash/autostash, rerere, pruning, safer force-push alias, difftastic/nvim tools, and common aliases. |
 | `pi/.pi/agent/settings.json` | `~/.pi/agent/settings.json` | global pi settings: default provider/model, thinking level, theme, installed pi packages. |
 | `pi/.pi/agent/extensions/` | `~/.pi/agent/extensions/` | global pi TypeScript extensions, including the `interview_user` tool / research interview UI. |
 | `pi/.pi/agent/skills/` | `~/.pi/agent/skills/` | global pi-native skills. local state like auth, sessions, fff cache, and package checkouts are intentionally not tracked. |
@@ -63,7 +64,7 @@ rule of thumb:
 from this repo:
 
 ```bash
-stow -t ~ nvim ghostty zsh zellij opencode pi agents
+stow -t ~ nvim ghostty zsh zellij opencode pi agents git
 ```
 
 from zsh, helper functions are available:
@@ -87,6 +88,7 @@ expected shape:
 ~/.config/zellij  -> ~/Workspace/dotfiles/zellij/.config/zellij
 ~/.config/opencode/* -> ~/Workspace/dotfiles/opencode/.config/opencode/*
 ~/.config/opencode/skills -> ~/.agents/skills
+~/.gitconfig -> ~/Workspace/dotfiles/git/.gitconfig
 ~/.pi/agent/settings.json -> ~/Workspace/dotfiles/pi/.pi/agent/settings.json
 ~/.pi/agent/extensions -> ~/Workspace/dotfiles/pi/.pi/agent/extensions
 ~/.pi/agent/skills -> ~/Workspace/dotfiles/pi/.pi/agent/skills

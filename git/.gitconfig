@@ -1,0 +1,116 @@
+[gpg]
+	format = ssh
+
+[user]
+	name = Peter Edmonds
+	email = peter@peteredm.com
+	signingkey = ~/.ssh/id_ed25519.pub
+
+[commit]
+	gpgsign = true
+	verbose = true
+
+[tag]
+	gpgsign = true
+
+[init]
+	defaultBranch = main
+
+[push]
+	default = simple
+	autoSetupRemote = true
+	followTags = true
+
+[fetch]
+	prune = true
+	pruneTags = true
+	all = true
+
+[pull]
+	rebase = true
+
+[rebase]
+	autosquash = true
+	autostash = true
+	updateRefs = true
+
+[rerere]
+	enabled = true
+	autoupdate = true
+
+[merge]
+	conflictStyle = zdiff3
+	tool = nvim
+
+[mergetool]
+	keepBackup = false
+	prompt = false
+
+[mergetool "nvim"]
+	cmd = nvim -d -c "wincmd l" -c "norm ]c" "$LOCAL" "$MERGED" "$REMOTE"
+
+[diff]
+	algorithm = histogram
+	colorMoved = default
+	colorMovedWS = allow-indentation-change
+	tool = difftastic
+
+[difftool]
+	prompt = false
+
+[difftool "difftastic"]
+	cmd = difft "$LOCAL" "$REMOTE"
+
+[pager]
+	difftool = true
+	branch = false
+	tag = false
+
+[branch]
+	sort = -committerdate
+
+[tag]
+	sort = version:refname
+
+[column]
+	ui = auto
+
+[log]
+	decorate = true
+	date = iso
+
+[status]
+	short = true
+	branch = true
+	showStash = true
+
+[help]
+	autoCorrect = prompt
+
+[advice]
+	addEmptyPathspec = false
+	pushUpdateRejected = true
+	statusHints = true
+
+[core]
+	editor = nvim
+	excludesFile = ~/.config/git/ignore
+
+[maintenance]
+	strategy = incremental
+	repo = ~/Workspace/tl.ai
+
+[alias]
+	lg = log --oneline --graph --decorate --all
+	pf = push --force-with-lease
+	pr = "!f() { git fetch origin pull/$1/head:$2; }; f"
+	rebase-main = "!f() { git fetch origin main && git rebase origin/main; }; f"
+	rebase-mine = rebase -X theirs
+	rebase-theirs = rebase -X ours
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+	last = log -1 HEAD --stat
+	uncommit = reset --soft HEAD~1
+	amend = commit --amend --no-edit
