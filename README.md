@@ -32,6 +32,10 @@ active config in `$HOME` and `~/.config` should symlink back into this repo. old
 | `zellij/.config/zellij/layouts/` | `~/.config/zellij/layouts/` | zellij layouts. |
 | `zellij/.config/zellij/plugins/` | `~/.config/zellij/plugins/` | local zellij wasm plugins. |
 | `opencode/.config/opencode/` | `~/.config/opencode/*` | opencode config, instructions, agents, skills, tui config, and package metadata. |
+| `pi/.pi/agent/settings.json` | `~/.pi/agent/settings.json` | global pi settings: default provider/model, thinking level, theme, installed pi packages. |
+| `pi/.pi/agent/extensions/` | `~/.pi/agent/extensions/` | global pi TypeScript extensions, including the `interview_user` tool / research interview UI. |
+| `pi/.pi/agent/skills/` | `~/.pi/agent/skills/` | global pi-native skills. local state like auth, sessions, fff cache, and package checkouts are intentionally not tracked. |
+| `agents/.agents/` | `~/.agents` | global Agent Skills directory shared by pi and other agents. contains reusable skills such as browser, create-a-pr, design, React/Next/Vercel, Remotion, and Effect guidance. |
 
 ## zsh load order
 
@@ -59,7 +63,7 @@ rule of thumb:
 from this repo:
 
 ```bash
-stow -t ~ nvim ghostty zsh zellij opencode
+stow -t ~ nvim ghostty zsh zellij opencode pi agents
 ```
 
 from zsh, helper functions are available:
@@ -82,6 +86,10 @@ expected shape:
 ~/.config/ghostty -> ~/Workspace/dotfiles/ghostty/.config/ghostty
 ~/.config/zellij  -> ~/Workspace/dotfiles/zellij/.config/zellij
 ~/.config/opencode/* -> ~/Workspace/dotfiles/opencode/.config/opencode/*
+~/.pi/agent/settings.json -> ~/Workspace/dotfiles/pi/.pi/agent/settings.json
+~/.pi/agent/extensions -> ~/Workspace/dotfiles/pi/.pi/agent/extensions
+~/.pi/agent/skills -> ~/Workspace/dotfiles/pi/.pi/agent/skills
+~/.agents -> ~/Workspace/dotfiles/agents/.agents
 ```
 
 ## not tracked
@@ -93,4 +101,9 @@ local shell state and cleanup archives are intentionally ignored:
 **/.zsh_sessions/
 **/.zcompdump*
 _imported/
+pi/.pi/agent/auth.json
+pi/.pi/agent/sessions/
+pi/.pi/agent/fff/
+pi/.pi/agent/git/
+**/.DS_Store
 ```
