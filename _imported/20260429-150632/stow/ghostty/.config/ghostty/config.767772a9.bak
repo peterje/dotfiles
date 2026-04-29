@@ -1,7 +1,0 @@
-# font
-theme = "Vercel"
-font-family = "Paper Mono"
-window-title-font-family = "JetBrains Mono"
-font-size = 20
-adjust-cell-height = 50%
-adjust-cell-width = -5%
