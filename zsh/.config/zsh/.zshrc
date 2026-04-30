@@ -9,6 +9,28 @@ setopt SHARE_HISTORY        # Share history between all sessions.
 export HISTSIZE=10000
 export SAVEHIST=10000
 
+export DOTFILES="${DOTFILES:-$HOME/Workspace/dotfiles}"
+dotfiles_packages=(nvim ghostty zsh zellij opencode pi agents git)
+
+unalias dstow 2>/dev/null
+unalias dunstow 2>/dev/null
+
+dstow() {
+  local packages=("$@")
+
+  (( ${#packages[@]} )) || packages=("${dotfiles_packages[@]}")
+
+  command stow -R -d "$DOTFILES" -t "$HOME" "${packages[@]}"
+}
+
+dunstow() {
+  local packages=("$@")
+
+  (( ${#packages[@]} )) || packages=("${dotfiles_packages[@]}")
+
+  command stow -D -d "$DOTFILES" -t "$HOME" "${packages[@]}"
+}
+
 source $ZDOTDIR/theme.zsh
 source $ZDOTDIR/vim.zsh
 source $ZDOTDIR/aliases.zsh
