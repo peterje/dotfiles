@@ -4,7 +4,8 @@
   "defaultModel": "gpt-5.5",
   "defaultThinkingLevel": "low",
   "packages": [
-    "git:github.com/SamuelLHuber/pi-fff"
+    "git:github.com/SamuelLHuber/pi-fff",
+    "npm:pi-autoresearch"
   ],
-  "theme": "dark"
+  "theme": "light"
 }
