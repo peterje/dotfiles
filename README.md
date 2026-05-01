@@ -12,13 +12,14 @@ should point back into this repo.
 
 Install / relink everything:
 
-  stow -t ~ nvim ghostty zsh zellij opencode pi agents git
+  stow -t ~ nvim ghostty zsh zellij opencode pi agents git bin
 
-From zsh:
+Dotfiles command:
 
-  dstow          relink default packages
-  dstow nvim     relink one package
-  dunstow nvim   unlink one package
+  dstow             relink default packages
+  dstow nvim        relink one package
+  dstow unlink nvim unlink one package
+  dstow status      show tracked links and where they point
 
 
 layout

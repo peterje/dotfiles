@@ -1,0 +1,3 @@
+# Generated package manager lockfiles are local state, not dotfile config.
+(^|/)bun\.lock$
+(^|/).*lock.*$

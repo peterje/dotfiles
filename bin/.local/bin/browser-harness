@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+set -euo pipefail
+repo="${DOTFILES:-$HOME/Workspace/dotfiles}/agents/.agents/skills/browser-harness"
+cd "$repo"
+exec uv run browser-harness "$@"

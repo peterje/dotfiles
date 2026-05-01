@@ -20,26 +20,7 @@ setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_IGNORE_SPACE
 setopt SHARE_HISTORY
 
-dotfiles_packages=(nvim ghostty zsh)
-
-unalias dstow 2>/dev/null
-unalias dunstow 2>/dev/null
-
-dstow() {
-  local packages=("$@")
-
-  (( ${#packages[@]} )) || packages=("${dotfiles_packages[@]}")
-
-  command stow -R -d "$DOTFILES" -t "$HOME" "${packages[@]}"
-}
-
-dunstow() {
-  local packages=("$@")
-
-  (( ${#packages[@]} )) || packages=("${dotfiles_packages[@]}")
-
-  command stow -D -d "$DOTFILES" -t "$HOME" "${packages[@]}"
-}
+alias dunstow='dstow unlink'
 alias orca='bun run /Users/peteredm/Workspace/orca/dist/orca'
 
 [[ -f "$HOME/.zshrc.local" ]] && source "$HOME/.zshrc.local"

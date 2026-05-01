@@ -1,0 +1,103 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+DOTFILES="${DOTFILES:-$HOME/Workspace/dotfiles}"
+TARGET="${DSTOW_TARGET:-$HOME}"
+PACKAGES=(nvim ghostty zsh zellij opencode pi agents git bin)
+
+usage() {
+  cat <<'EOF'
+Usage:
+  dstow                 relink default dotfile packages
+  dstow <packages...>   relink specific packages
+  dstow link [pkgs...]  relink packages
+  dstow unlink [pkgs...] unlink packages
+  dstow status          show dotfile symlinks and their targets
+  dstow doctor          dry-run relink default packages
+EOF
+}
+
+packages_or_default() {
+  if (( $# )); then
+    printf '%s\0' "$@"
+  else
+    printf '%s\0' "${PACKAGES[@]}"
+  fi
+}
+
+link_packages() {
+  local pkgs=()
+  while IFS= read -r -d '' pkg; do pkgs+=("$pkg"); done < <(packages_or_default "$@")
+  command stow -R -d "$DOTFILES" -t "$TARGET" "${pkgs[@]}"
+}
+
+unlink_packages() {
+  local pkgs=()
+  while IFS= read -r -d '' pkg; do pkgs+=("$pkg"); done < <(packages_or_default "$@")
+  command stow -D -d "$DOTFILES" -t "$TARGET" "${pkgs[@]}"
+}
+
+has_symlink_parent() {
+  local path="$1" parent
+  parent="$(dirname "$path")"
+  while [[ "$parent" != "$TARGET" && "$parent" != / ]]; do
+    [[ -L "$parent" ]] && return 0
+    parent="$(dirname "$parent")"
+  done
+  return 1
+}
+
+status() {
+  local pkg path rel target dest
+
+  printf 'dotfiles: %s\n' "$DOTFILES"
+  printf 'target:   %s\n\n' "$TARGET"
+  printf '%-45s -> %s\n' 'link' 'target'
+  printf '%-45s    %s\n' '----' '------'
+
+  for pkg in "${PACKAGES[@]}"; do
+    [[ -d "$DOTFILES/$pkg" ]] || continue
+    find "$DOTFILES/$pkg" -mindepth 1 \
+      -name .stow-local-ignore -prune -o \
+      -path '*/.git' -prune -o \
+      -print
+  done |
+  while IFS= read -r path; do
+    pkg="${path#$DOTFILES/}"
+    pkg="${pkg%%/*}"
+    rel="${path#$DOTFILES/$pkg/}"
+    target="$TARGET/$rel"
+    [[ -L "$target" ]] || continue
+    has_symlink_parent "$target" && continue
+    dest="$(readlink "$target")"
+    printf '%-45s -> %s\n' "~/$rel" "$dest"
+  done | sort -u
+}
+
+cmd="${1:-link}"
+case "$cmd" in
+  link|restow)
+    shift || true
+    link_packages "$@"
+    ;;
+  unlink|delete|unstow)
+    shift || true
+    unlink_packages "$@"
+    ;;
+  status)
+    shift || true
+    status "$@"
+    ;;
+  doctor|dry-run)
+    shift || true
+    pkgs=()
+    while IFS= read -r -d '' pkg; do pkgs+=("$pkg"); done < <(packages_or_default "$@")
+    command stow -n -v -R -d "$DOTFILES" -t "$TARGET" "${pkgs[@]}"
+    ;;
+  help|-h|--help)
+    usage
+    ;;
+  *)
+    link_packages "$cmd" "$@"
+    ;;
+esac

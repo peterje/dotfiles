@@ -13,3 +13,10 @@ pi/.pi/agent/sessions/
 pi/.pi/agent/fff/
 pi/.pi/agent/git/
 **/.DS_Store
+**/.venv/
+**/__pycache__/
+**/*.py[cod]
+**/*.egg-info/
+
+# opencode: track config, not generated package lockfiles
+opencode/.config/opencode/*lock*
