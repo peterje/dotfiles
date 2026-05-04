@@ -1,3 +1,10 @@
+---
+name: write-a-prd
+description: Create a detailed PRD by interviewing the user, exploring the repo, and drafting a GitHub issue.
+---
+
+# Write a PRD
+
 This skill will be invoked when the user wants to create a PRD. You should go through the steps below. You may skip steps if you don't consider them necessary.
 
 1. Ask the user for a long, detailed description of the problem they want to solve and any potential ideas for solutions.

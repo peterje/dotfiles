@@ -1,4 +1,9 @@
-Debugging with Axiom 
+---
+name: axiom-debugging
+description: Query and investigate logs in Axiom for debugging production or edge deployment issues.
+---
+
+# Debugging with Axiom
 
 > ## Documentation Index
 > Fetch the complete documentation index at: https://axiom.co/docs/llms.txt

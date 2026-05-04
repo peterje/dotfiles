@@ -1,3 +1,8 @@
+---
+name: obsidian-vault
+description: Work with the local Obsidian AI Research vault, following its note naming, linking, and organization conventions.
+---
+
 # Obsidian Vault
 
 ## Vault location

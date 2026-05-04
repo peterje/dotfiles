@@ -1,3 +1,8 @@
+---
+name: scaffold-exercises
+description: Create exercise directory structures that satisfy ai-hero-cli lint requirements.
+---
+
 # Scaffold Exercises
 
 Create exercise directory structures that pass `pnpm ai-hero-cli internal lint`.
