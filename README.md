@@ -12,7 +12,7 @@ should point back into this repo.
 
 Install / relink everything:
 
-  stow -t ~ nvim ghostty zsh zellij opencode pi agents git bin
+  stow -t ~ nvim ghostty zsh zellij opencode codex pi agents git bin
 
 Dotfiles command:
 
@@ -61,6 +61,10 @@ opencode/
 
   ~/.config/opencode/skills -> ~/.agents/skills
     Opencode skills live in the shared agent skills directory.
+
+codex/
+  ~/.codex/config.toml
+    Codex config. Secrets, auth, logs, sessions, and generated state stay local.
 
 pi/
   ~/.pi/agent/settings.json
@@ -112,6 +116,7 @@ expected links
 ~/.config/zellij           -> ~/Workspace/dotfiles/zellij/.config/zellij
 ~/.config/opencode/*       -> ~/Workspace/dotfiles/opencode/.config/opencode/*
 ~/.config/opencode/skills  -> ~/.agents/skills
+~/.codex/config.toml       -> ~/Workspace/dotfiles/codex/.codex/config.toml
 ~/.pi/agent/settings.json  -> ~/Workspace/dotfiles/pi/.pi/agent/settings.json
 ~/.pi/agent/extensions     -> ~/Workspace/dotfiles/pi/.pi/agent/extensions
 ~/.pi/agent/skills         -> ~/Workspace/dotfiles/pi/.pi/agent/skills

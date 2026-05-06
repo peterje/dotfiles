@@ -1,0 +1,88 @@
+model = "gpt-5.5"
+model_reasoning_effort = "low"
+personality = "pragmatic"
+[projects."/Users/peteredm/Workspace/coteach"]
+trust_level = "trusted"
+experimental_use_rmcp_client = true
+
+[projects."/Users/peteredm/Workspace/opencode"]
+trust_level = "trusted"
+
+[projects."/Users/peteredm"]
+trust_level = "trusted"
+
+[projects."/Users/peteredm/Downloads/coteach-takehome/el-curriculum-agent"]
+trust_level = "trusted"
+
+[projects."/Users/peteredm/Documents/Codex/2026-05-04/summarize-my-emails-since-last-friday"]
+trust_level = "trusted"
+
+[projects."/Users/peteredm/conductor/repos/coteach"]
+trust_level = "trusted"
+
+[projects."/Users/peteredm/conductor/repos/flue-playground"]
+trust_level = "trusted"
+
+[notice]
+hide_gpt5_1_migration_prompt = true
+"hide_gpt-5.1-codex-max_migration_prompt" = true
+
+[notice.model_migrations]
+"gpt-5.1-codex-max" = "gpt-5.2-codex"
+gpt-5-codex = "gpt-5.2-codex"
+"gpt-5.2-codex" = "gpt-5.3-codex"
+"gpt-5.3-codex" = "gpt-5.4"
+
+[mcp_servers.figma]
+url = "https://mcp.figma.com/mcp"
+enabled = false
+
+[mcp_servers.paper]
+enabled = false
+url = "http://127.0.0.1:29979/mcp"
+
+[plugins."google-drive@openai-curated"]
+enabled = true
+
+[plugins."computer-use@openai-bundled"]
+enabled = true
+
+[plugins."figma@openai-curated"]
+enabled = true
+
+[plugins."github@openai-curated"]
+enabled = true
+
+[plugins."documents@openai-primary-runtime"]
+enabled = true
+
+[plugins."spreadsheets@openai-primary-runtime"]
+enabled = true
+
+[plugins."presentations@openai-primary-runtime"]
+enabled = true
+
+[plugins."linear@openai-curated"]
+enabled = true
+
+[plugins."gmail@openai-curated"]
+enabled = true
+
+[plugins."browser-use@openai-bundled"]
+enabled = true
+
+[marketplaces.openai-bundled]
+last_updated = "2026-05-05T18:52:29Z"
+source_type = "local"
+source = "/Users/peteredm/.codex/.tmp/bundled-marketplaces/openai-bundled"
+
+[marketplaces.openai-primary-runtime]
+last_updated = "2026-05-05T18:59:14Z"
+source_type = "local"
+source = "/Users/peteredm/.cache/codex-runtimes/codex-primary-runtime/plugins/openai-primary-runtime"
+
+[tui.model_availability_nux]
+"gpt-5.5" = 4
+
+[features]
+goals = true
