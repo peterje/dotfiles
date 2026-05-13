@@ -2,10 +2,14 @@
   "lastChangelogVersion": "0.70.6",
   "defaultProvider": "openai-codex",
   "defaultModel": "gpt-5.5",
-  "defaultThinkingLevel": "low",
+  "defaultThinkingLevel": "medium",
   "packages": [
-    "git:github.com/SamuelLHuber/pi-fff",
-    "npm:pi-autoresearch"
+    {
+      "source": "git:github.com/SamuelLHuber/pi-fff",
+      "extensions": []
+    },
+    "npm:pi-autoresearch",
+    "git:github.com/Michaelliv/pi-goal"
   ],
   "theme": "light"
 }
