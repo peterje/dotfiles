@@ -1,15 +1,22 @@
 {
-  "lastChangelogVersion": "0.70.6",
+  "lastChangelogVersion": "0.79.0",
   "defaultProvider": "openai-codex",
   "defaultModel": "gpt-5.5",
-  "defaultThinkingLevel": "medium",
+  "defaultThinkingLevel": "high",
   "packages": [
     {
       "source": "git:github.com/SamuelLHuber/pi-fff",
       "extensions": []
     },
     "npm:pi-autoresearch",
-    "git:github.com/Michaelliv/pi-goal"
+    "git:github.com/Michaelliv/pi-goal",
+    "npm:pi-subagents",
+    "https://github.com/mitsuhiko/pi-draw",
+    "https://github.com/mitsuhiko/pi-codemode-mcp",
+    "npm:@plannotator/pi-extension"
   ],
-  "theme": "light"
+  "theme": "light",
+  "compaction": {
+    "enabled": true
+  }
 }

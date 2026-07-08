@@ -1,6 +1,8 @@
 model = "gpt-5.5"
-model_reasoning_effort = "low"
+model_reasoning_effort = "high"
 personality = "pragmatic"
+notify = ["/Users/peteredm/.codex/computer-use/Codex Computer Use.app/Contents/SharedSupport/SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient", "turn-ended"]
+
 [projects."/Users/peteredm/Workspace/coteach"]
 trust_level = "trusted"
 experimental_use_rmcp_client = true
@@ -23,6 +25,12 @@ trust_level = "trusted"
 [projects."/Users/peteredm/conductor/repos/flue-playground"]
 trust_level = "trusted"
 
+[projects."/Users/peteredm/conductor/repos/opencode"]
+trust_level = "trusted"
+
+[projects."/Users/peteredm/Workspace/cambo"]
+trust_level = "trusted"
+
 [notice]
 hide_gpt5_1_migration_prompt = true
 "hide_gpt-5.1-codex-max_migration_prompt" = true
@@ -40,6 +48,26 @@ enabled = false
 [mcp_servers.paper]
 enabled = false
 url = "http://127.0.0.1:29979/mcp"
+
+[mcp_servers.node_repl]
+args = []
+command = "/Applications/Codex.app/Contents/Resources/node_repl"
+startup_timeout_sec = 120
+
+[mcp_servers.node_repl.env]
+NODE_REPL_NATIVE_PIPE_CONNECT_TIMEOUT_MS = "1000"
+NODE_REPL_NODE_MODULE_DIRS = ""
+NODE_REPL_NODE_PATH = "/Applications/Codex.app/Contents/Resources/node"
+NODE_REPL_TRUSTED_CODE_PATHS = "/Users/peteredm/.codex"
+CODEX_HOME = "/Users/peteredm/.codex"
+NODE_REPL_TRUSTED_BROWSER_CLIENT_SHA256S = "2de792ebdf729e85542c94275f6654821dddce546d9c7374c915f2297529e313"
+BROWSER_USE_AVAILABLE_BACKENDS = "chrome,iab"
+NODE_REPL_INSTRUCTIONS_USE_CASE_BROWSER = "Control the in-app browser in conjunction with the Browser Plugin."
+NODE_REPL_INSTRUCTIONS_USE_CASE_CHROME = "Control the Chrome browser in conjunction with the Chrome Plugin. Prefer this method of controlling Chrome over alternatives (such as Computer Use) unless the user explicitly mentions an alternative."
+BROWSER_USE_CODEX_APP_BUILD_FLAVOR = "prod"
+BROWSER_USE_CODEX_APP_VERSION = "26.602.40724"
+SKY_CUA_SERVICE_PATH = "/Users/peteredm/.codex/plugins/cache/openai-bundled/computer-use/1.0.809/Codex Computer Use.app"
+CODEX_CLI_PATH = "/Applications/Codex.app/Contents/Resources/codex"
 
 [plugins."google-drive@openai-curated"]
 enabled = true
@@ -68,16 +96,25 @@ enabled = true
 [plugins."gmail@openai-curated"]
 enabled = true
 
-[plugins."browser-use@openai-bundled"]
+[plugins."slack@openai-curated"]
+enabled = true
+
+[plugins."posthog@openai-curated"]
+enabled = true
+
+[plugins."browser@openai-bundled"]
+enabled = true
+
+[plugins."pdf@openai-primary-runtime"]
 enabled = true
 
 [marketplaces.openai-bundled]
-last_updated = "2026-05-05T18:52:29Z"
+last_updated = "2026-06-22T18:15:36Z"
 source_type = "local"
 source = "/Users/peteredm/.codex/.tmp/bundled-marketplaces/openai-bundled"
 
 [marketplaces.openai-primary-runtime]
-last_updated = "2026-05-05T18:59:14Z"
+last_updated = "2026-06-22T18:59:36Z"
 source_type = "local"
 source = "/Users/peteredm/.cache/codex-runtimes/codex-primary-runtime/plugins/openai-primary-runtime"
 
@@ -86,3 +123,45 @@ source = "/Users/peteredm/.cache/codex-runtimes/codex-primary-runtime/plugins/op
 
 [features]
 goals = true
+js_repl = false
+
+[desktop]
+appearanceLightCodeThemeId = "linear"
+appearanceDarkCodeThemeId = "linear"
+conversationDetailMode = "STEPS_PROSE"
+
+[desktop.appearanceLightChromeTheme]
+accent = "#5e6ad2"
+contrast = 45
+ink = "#1b1b1b"
+opaqueWindows = true
+surface = "#fcfcfd"
+
+[desktop.appearanceLightChromeTheme.fonts]
+ui = "Inter"
+
+[desktop.appearanceLightChromeTheme.semanticColors]
+diffAdded = "#52a450"
+diffRemoved = "#c94446"
+skill = "#8160d8"
+
+[desktop.appearanceDarkChromeTheme]
+accent = "#606acc"
+contrast = 60
+ink = "#e3e4e6"
+opaqueWindows = true
+surface = "#0f0f11"
+
+[desktop.appearanceDarkChromeTheme.fonts]
+ui = "Inter"
+
+[desktop.appearanceDarkChromeTheme.semanticColors]
+diffAdded = "#69c967"
+diffRemoved = "#ff7e78"
+skill = "#c2a1ff"
+
+[desktop.open-in-target-preferences]
+global = "ghostty"
+
+[desktop.open-in-target-preferences.perPath]
+"/Users/peteredm/Workspace/coteach" = "ghostty"

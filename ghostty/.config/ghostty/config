@@ -1,7 +1,7 @@
 # font
 font-family = "Paper Mono"
 window-title-font-family = "JetBrains Mono"
-theme = Apple System Colors Light
+theme = Github
 font-size = 20
 adjust-cell-height = 50%
 adjust-cell-width = -5%
