@@ -124,6 +124,7 @@ source = "/Users/peteredm/.cache/codex-runtimes/codex-primary-runtime/plugins/op
 [features]
 goals = true
 js_repl = false
+hooks = true
 
 [desktop]
 appearanceLightCodeThemeId = "linear"

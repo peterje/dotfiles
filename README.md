@@ -70,6 +70,9 @@ codex/
   ~/.codex/config.toml
     Codex config. Secrets, auth, logs, sessions, and generated state stay local.
 
+  ~/.codex/AGENTS.md
+    Imports the shared agent instructions from ~/.agents/AGENTS.md.
+
 pi/
   ~/.pi/agent/settings.json
     Global pi settings: provider, model, thinking level, theme, packages.
@@ -83,6 +86,12 @@ pi/
 agents/
   ~/.agents
     Shared Agent Skills directory used by pi, opencode, and other agents.
+
+  ~/.agents/AGENTS.md
+    Canonical shared instructions for Claude, Codex, pi, opencode, and other agents.
+
+  ~/Workspace/AGENTS.md and ~/Workspace/CLAUDE.md
+    Workspace-level import shims that point agents at ~/.agents/AGENTS.md.
 
 git/
   ~/.gitconfig
@@ -122,10 +131,13 @@ expected links
 ~/.config/opencode/*       -> ~/Workspace/dotfiles/opencode/.config/opencode/*
 ~/.config/opencode/skills  -> ~/.agents/skills
 ~/.codex/config.toml       -> ~/Workspace/dotfiles/codex/.codex/config.toml
+~/.codex/AGENTS.md         -> ~/Workspace/dotfiles/codex/.codex/AGENTS.md
 ~/.pi/agent/settings.json  -> ~/Workspace/dotfiles/pi/.pi/agent/settings.json
 ~/.pi/agent/extensions     -> ~/Workspace/dotfiles/pi/.pi/agent/extensions
 ~/.pi/agent/skills         -> ~/Workspace/dotfiles/pi/.pi/agent/skills
 ~/.agents                  -> ~/Workspace/dotfiles/agents/.agents
+~/Workspace/AGENTS.md      -> ~/Workspace/dotfiles/agents/Workspace/AGENTS.md
+~/Workspace/CLAUDE.md      -> ~/Workspace/dotfiles/agents/Workspace/CLAUDE.md
 ~/.gitconfig               -> ~/Workspace/dotfiles/git/.gitconfig
 
 
