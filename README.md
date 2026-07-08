@@ -12,7 +12,7 @@ should point back into this repo.
 
 Install / relink everything:
 
-  stow -t ~ nvim ghostty zsh zellij opencode codex pi agents git bin
+  stow -t ~ nvim ghostty herdr zsh zellij opencode codex pi agents git bin
 
 Dotfiles command:
 
@@ -50,6 +50,10 @@ nvim/
 ghostty/
   ~/.config/ghostty
     Ghostty terminal config.
+
+herdr/
+  ~/.config/herdr/config.toml
+    Herdr config. Uses the terminal ANSI palette from Ghostty.
 
 zellij/
   ~/.config/zellij
@@ -113,6 +117,7 @@ expected links
 ~/.config/zsh              -> ~/Workspace/dotfiles/zsh/.config/zsh
 ~/.config/nvim             -> ~/Workspace/dotfiles/nvim/.config/nvim
 ~/.config/ghostty          -> ~/Workspace/dotfiles/ghostty/.config/ghostty
+~/.config/herdr/config.toml -> ~/Workspace/dotfiles/herdr/.config/herdr/config.toml
 ~/.config/zellij           -> ~/Workspace/dotfiles/zellij/.config/zellij
 ~/.config/opencode/*       -> ~/Workspace/dotfiles/opencode/.config/opencode/*
 ~/.config/opencode/skills  -> ~/.agents/skills

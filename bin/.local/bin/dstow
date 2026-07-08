@@ -3,7 +3,7 @@ set -euo pipefail
 
 DOTFILES="${DOTFILES:-$HOME/Workspace/dotfiles}"
 TARGET="${DSTOW_TARGET:-$HOME}"
-PACKAGES=(nvim ghostty zsh zellij opencode pi agents git bin)
+PACKAGES=(nvim ghostty herdr zsh zellij opencode pi agents git bin)
 
 usage() {
   cat <<'EOF'
