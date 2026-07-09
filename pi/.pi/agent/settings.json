@@ -18,5 +18,6 @@
   "theme": "light",
   "compaction": {
     "enabled": true
-  }
+  },
+  "hideThinkingBlock": true
 }

@@ -1,6 +1,6 @@
 ---
 name: obsidian-vault
-description: Work with the local Obsidian AI Research vault, following its note naming, linking, and organization conventions.
+description: Search, create, and manage notes in the Obsidian vault with wikilinks and index notes. Use when user wants to find, create, or organize notes in Obsidian.
 ---
 
 # Obsidian Vault
